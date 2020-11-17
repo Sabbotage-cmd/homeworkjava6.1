@@ -11,10 +11,7 @@ public class StatsService {
     }
 
     public long calculateAverage(long[] purchases) {
-        long sum = 0;
-        for (long purchase : purchases) {
-            sum += purchase;
-        }
+        long sum = calculateSum(purchases);
         return sum / purchases.length;
     }
 
@@ -49,11 +46,8 @@ public class StatsService {
     }
 
     public long belowAverage(long[] purchases) {
-        long sum = 0;
+        long sum = calculateSum(purchases);
         int num = 0;
-        for (long purchase : purchases) {
-            sum += purchase;
-        }
         long average = sum / purchases.length;
         for (int i=0; i < purchases.length; i++) {
             if (purchases[i] < average)
@@ -75,5 +69,4 @@ public class StatsService {
         }
         return num;
     }
-
 }
